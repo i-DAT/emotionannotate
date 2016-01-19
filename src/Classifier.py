@@ -44,9 +44,9 @@ def classifier(data,emo,output, lexicon_feat, embed_feat):
         for l in f.readlines():
             l = l.strip()
             if (l == '1') or (l == 1):
-                p='yes'
+                p=True
             else:
-                p='no'
+                p=False
             preds.append(p)
     pred[emo]=preds
     output.put(pred)
