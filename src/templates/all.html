@@ -85,11 +85,24 @@
 
 <script>
 
+function checkEmotion(response){
+  var keys = Object.keys(response);
+  for (var i = 0; i < keys.length; i++) {
+    if(response[keys[i]]){
+      return true;
+    }
+}
+
+  return false;
+}
+
 $(document).ready(function(){
   getTweetsCallback(function(){
     for (var i = 0; i < tweet_data.length; i++) {
+      if (checkEmotion(tweet_data[i].response)){
         addTweetHTML(tweet_data[i].tweet, tweet_data[i].response);
         pushData(tweet_data[i].response);
+      }
     }
     reloadChart();
   })
