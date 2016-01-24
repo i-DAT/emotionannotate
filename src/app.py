@@ -4,9 +4,15 @@ from Classifier import parallelClassifier, initFeatureProcessors
 app = Flask(__name__)
 app.debug = True
 
+#lexicon_feat, embed_feat = initFeatureProcessors()
+
 @app.route('/')
 def index():
     return render_template('index.html')
+
+@app.route('/animation')
+def animation():
+    return render_template('animation.html')
 
 @app.route('/learning', methods=['POST'])
 def learning():
