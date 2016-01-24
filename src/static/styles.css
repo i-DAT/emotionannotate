@@ -1,0 +1,68 @@
+body { padding-top: 70px; font-family: 'Lato', sans-serif; font-size: 18px;}
+
+#navbar-logo{
+    width: 30px;
+    float: left;
+    padding-top: 10px;
+}
+
+  .tweetlist{
+      border-top-left-radius: 0px;
+      border-bottom-left-radius: 0px;
+      min-height: 50px;
+      margin: 0px;
+  }
+
+  .label{
+      text-align: center;
+      color: black
+  }
+
+  .table-label{
+      text-align: center;
+  }
+
+  .starting{
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      /*border: solid 2px darkgrey;*/
+      background-color: lightgrey;
+      display: table-cell;
+      vertical-align: middle;
+  }
+
+  .green{
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      /*border: solid 2px #00db58;*/
+      background-color: lightgreen;
+      display: table-cell;
+      vertical-align: middle;
+  }
+
+  .red{
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      /*border: solid 2px #ff6666;*/
+      background-color: #C00000 ;
+      display: table-cell;
+      vertical-align: middle;
+  }
+
+  .result1,.result2,.result3,.result4,.result5{
+      display: inline-block;
+      margin: 0px auto;
+  }
+
+  .emotion{
+      text-align: center;
+  }
+
+  .circle_display{
+    display:flex;
+    align-items:center;
+    min-height:200px;
+  }

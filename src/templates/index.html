@@ -2,24 +2,97 @@
 <html>
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="../static/script.js"></script>
-</script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw==" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha256-KXn5puMvxCw+dAYznun+drMdG1IFl3agK0p/pqT9KAo= sha512-2e8qq0ETcfWRI4HJBzQiA3UoyFk6tbNyG+qSaIBZLyW9Xf3sWZHN/lxe9fTh1U45DpPf07yj94KsUHHWe4Yk1A==" crossorigin="anonymous"></script>
+<link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,700,100italic,300italic,400italic,700italic' rel='stylesheet' type='text/css'>
+
+<link href='../static/styles.css' rel='stylesheet' type='text/css'>
+
+
 </head>
 
 <body>
-    <h1>Emotion Classification</h1>
-    <p><b>Enter a tweet</b></p>
-    <input id="user-input" placeholder="Tweet to be classified"></input>
-    <p>Does this tweet contain emotion-anger?</p>
-    <p id="result1"></p>
-    <p>Does this tweet contain emotion-disgust?</p>
-    <p id="result2"></p>
-    <p>Does this tweet contain emotion-happy?</p>
-    <p id="result3"></p>
-    <p>Does this tweet contain emotion-sad?</p>
-    <p id="result4"></p>
-    <p>Does this tweet contain emotion-surprise?</p>
-    <p id="result5"></p>
-    <button id="submit">Submit</button>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+          <img src="../static/smile.png" id="navbar-logo">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="glyphicon glyphicon-align-justify"></span></button>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+        <ul class="nav navbar-nav navbar-left">
+          <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Emotion Classification <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                      <li><a href="/">Emotion Classification</a></li>
+                      <li><a href="/batch">Animation</a></li>
+                    </ul>
+                  </li>
+        </ul>
+
+
+      </div>
+      </div>
+  </nav>
+
+  <div class="container">
+
+    <!-- INPUT -->
+    <div class="row">
+        <!--<div class="input-group col-xs-12 col-sm-offset-2 col-sm-8">-->
+        <div class="col-md-12">
+        <div class="input-group">
+          <span class="input-group-addon" id="basic-addon1">Enter a Tweet to be Classified</span>
+          <input type="text" class="form-control" style="color:black" id="user-input" placeholder="Tweet" aria-describedby="basic-addon1">
+          <span class="input-group-btn"><button class="btn btn-default" id="submit">Submit</button></span>
+        </div>
+        <hr>
+      </div>
+    </div>
+
+    <!-- PREV TWEET LIST -->
+
+    <div class="row">
+      <div class="textbox col-md-9">
+        <table id="results-table" class="table table-striped">
+          <thead>
+            <tr>
+              <th class='col-md-1'>#</th>
+              <th>Tweet</th>
+              <th class='col-md-1 table-label'>Anger</th>
+              <th class='col-md-1 table-label'>Disgust</th>
+              <th class='col-md-1 table-label'>Happy</th>
+              <th class='col-md-1 table-label'>Sad</th>
+              <th class='col-md-1 table-label'>Surprise</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!--<tr>
+              <th scope="row">0</th>
+              <td>Tweets Appear Here</td>
+              <td><div class="starting"><p class="emotion">Anger</p></div></td>
+              <td><div class="starting"><p class="emotion">Disgust</p></div></td>
+              <td><div class="starting"><p class="emotion">Happy</p></div></td>
+              <td><div class="starting"><p class="emotion">Sad</p></div></td>
+              <td><div class="starting"><p class="emotion">Surpise</p></div></td>
+            </tr>-->
+          </tbody>
+        </table>
+
+      </div>
+
+      <div class="col-md-3">
+        <div id="donutgauge"></div>
+      </div>
+    </div>
+
+
+  </div>
 </body>
+
+
+<script src="../static/d3.min.js"></script>
+<script src="../static/c3.min.js"></script>
+<script src="../static/script.js"></script>
+<script src="../static/donutchart.js"></script>
+<link src="../static/c3.min.css" rel='stylesheet' type='text/css'>
+
 </html>
