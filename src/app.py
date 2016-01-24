@@ -14,6 +14,10 @@ def index():
 def animation():
     return render_template('animation.html')
 
+@app.route('/all')
+def all():
+    return render_template('all.html')    
+
 @app.route('/learning', methods=['POST'])
 def learning():
     lexicon_feat, embed_feat = initFeatureProcessors()

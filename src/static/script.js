@@ -14,6 +14,13 @@ function getTweets(){
   });
 }
 
+function getTweetsCallback(callback){
+  $.get( "../static/result.json", function( data ) {
+    tweet_data = data;
+    callback();
+  });
+}
+
 function generateEmotionVisual(value){
   if (value){
     return "<td class='col-md-1'><div class='green'><p class='emotion'></p></div></td>";

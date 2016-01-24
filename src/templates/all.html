@@ -20,7 +20,7 @@
 
         <ul class="nav navbar-nav navbar-left">
           <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Animation<span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">All<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                       <li><a href="/">Emotion Classification</a></li>
                       <li><a href="/animation">Animation</a></li>
@@ -86,8 +86,11 @@
 <script>
 
 $(document).ready(function(){
-  getTweets();
-  interval = window.setInterval(displayRandomTweet, 5000);
+  getTweetsCallback(function(){
+    for (var i = 0; i < tweet_data.length; i++) {
+      addTweet(tweet_data[i].tweet, tweet_data[i].response);
+    }
+  })
 });
 
 </script>
