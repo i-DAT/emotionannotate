@@ -1,3 +1,18 @@
+var tweetnum = 0;
+
+var tweet_data = null;
+var interval = null;
+
+function displayRandomTweet(){
+  var tweet = tweet_data[Math.floor(Math.random()*tweet_data.length)];
+  addTweet(tweet.tweet, tweet.response);
+}
+
+function getTweets(){
+  $.get( "../static/result.json", function( data ) {
+    tweet_data = data;
+  });
+}
 
 function generateEmotionVisual(value){
   if (value){
@@ -7,8 +22,24 @@ function generateEmotionVisual(value){
   }
 }
 
+function addTweet(text, response){
+  tweetnum++;
+  table_html = "<th class='col-md-1' scope='row'>"+tweetnum+"</th>";
+  table_html += "<td>"+text+"</td>";
+
+  table_html += generateEmotionVisual(response.anger);
+  table_html += generateEmotionVisual(response.disgust);
+  table_html += generateEmotionVisual(response.happy);
+  table_html += generateEmotionVisual(response.sad);
+  table_html += generateEmotionVisual(response.surprise);
+
+
+  $('#results-table > tbody ').prepend('<tr>'+table_html+'</tr>');
+
+  updateChartData(response);
+}
+
 $(document).ready(function(){
-    var tweetnum = 0;
 
     $("#submit").click(function(event){
         var uInput = $("#user-input").val();
@@ -25,20 +56,7 @@ $(document).ready(function(){
                       $("#submit").prop('disabled', false);
                       $("#user-input").val('');
 
-                      tweetnum++;
-                      table_html = "<th class='col-md-1' scope='row'>"+tweetnum+"</th>";
-                      table_html += "<td>"+uInput+"</td>";
-
-                      table_html += generateEmotionVisual(response.anger);
-                      table_html += generateEmotionVisual(response.disgust);
-                      table_html += generateEmotionVisual(response.happy);
-                      table_html += generateEmotionVisual(response.sad);
-                      table_html += generateEmotionVisual(response.surprise);
-
-
-                      $('#results-table > tbody ').prepend('<tr>'+table_html+'</tr>');
-
-                      updateChartData(response);
+                      addTweet(uInput,response);
                   },
             });
         }

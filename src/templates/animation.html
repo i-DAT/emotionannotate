@@ -20,7 +20,7 @@
 
         <ul class="nav navbar-nav navbar-left">
           <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Emotion Classification <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Animation<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                       <li><a href="/">Emotion Classification</a></li>
                       <li><a href="/animation">Animation</a></li>
@@ -34,19 +34,6 @@
   </nav>
 
   <div class="container">
-
-    <!-- INPUT -->
-    <div class="row">
-        <!--<div class="input-group col-xs-12 col-sm-offset-2 col-sm-8">-->
-        <div class="col-md-12">
-        <div class="input-group">
-          <span class="input-group-addon" id="basic-addon1">Enter a Tweet to be Classified</span>
-          <input type="text" class="form-control" style="color:black" id="user-input" placeholder="Tweet" aria-describedby="basic-addon1">
-          <span class="input-group-btn"><button class="btn btn-default" id="submit">Submit</button></span>
-        </div>
-        <hr>
-      </div>
-    </div>
 
     <!-- PREV TWEET LIST -->
 
@@ -94,5 +81,14 @@
 <script src="../static/script.js"></script>
 <script src="../static/donutchart.js"></script>
 <link src="../static/c3.min.css" rel='stylesheet' type='text/css'>
+
+<script>
+
+$(document).ready(function(){
+  getTweets();
+  interval = window.setInterval(displayRandomTweet, 5000);
+});
+
+</script>
 
 </html>
