@@ -44,7 +44,7 @@
           <thead>
             <tr>
               <th class='col-md-1'>#</th>
-              <th>Tweet</th>
+              <th class='tweet-cell'>Tweet</th>
               <th class='col-md-1 table-label'>Anger</th>
               <th class='col-md-1 table-label'>Disgust</th>
               <th class='col-md-1 table-label'>Happy</th>
@@ -88,8 +88,10 @@
 $(document).ready(function(){
   getTweetsCallback(function(){
     for (var i = 0; i < tweet_data.length; i++) {
-      addTweet(tweet_data[i].tweet, tweet_data[i].response);
+        addTweetHTML(tweet_data[i].tweet, tweet_data[i].response);
+        pushData(tweet_data[i].response);
     }
+    reloadChart();
   })
 });
 

@@ -29,10 +29,10 @@ function generateEmotionVisual(value){
   }
 }
 
-function addTweet(text, response){
+function addTweetHTML(text, response){
   tweetnum++;
   table_html = "<th class='col-md-1' scope='row'>"+tweetnum+"</th>";
-  table_html += "<td>"+text+"</td>";
+  table_html += "<td class='tweet-cell'>"+text+"</td>";
 
   table_html += generateEmotionVisual(response.anger);
   table_html += generateEmotionVisual(response.disgust);
@@ -42,6 +42,10 @@ function addTweet(text, response){
 
 
   $('#results-table > tbody ').prepend('<tr>'+table_html+'</tr>');
+}
+
+function addTweet(text, response){
+  addTweetHTML(text, response);
 
   updateChartData(response);
 }

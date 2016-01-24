@@ -66,3 +66,8 @@ body { padding-top: 70px; font-family: 'Lato', sans-serif; font-size: 18px;}
     align-items:center;
     min-height:200px;
   }
+
+  .tweet-cell{
+    word-wrap: break-word;
+    max-width: 380px;
+  }

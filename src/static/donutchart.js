@@ -15,48 +15,27 @@ function updateCol(col,val){
   }
 }
 
-function updateChartData(response){
-  /*if(response.anger){
-    chart_data[0].push(1);
-  }else{
-    chart_data[0].push(0);
-  }
-
-  if(response.disgust){
-    chart_data[1].push(1);
-  }else{
-    chart_data[1].push(0);
-  }
-
-  if(response.happy){
-    chart_data[2].push(1);
-  }else{
-    chart_data[2].push(0);
-  }
-
-  if(response.sad){
-    chart_data[3].push(1);
-  }else{
-    chart_data[3].push(0);
-  }
-
-  if(response.surprise){
-    chart_data[4].push(1);
-  }else{
-    chart_data[4].push(0);
-  }*/
-
+function pushData(response){
   updateCol(0,response.anger);
   updateCol(1,response.disgust);
   updateCol(2,response.happy);
   updateCol(3,response.sad);
   updateCol(4,response.surprise);
+}
 
-
-
+function reloadChart(){
   chart.load({
     columns: chart_data
   })
+}
+
+function updateChartData(response){
+
+  pushData(response);
+
+
+  reloadChart();
+
 }
 
 $(document).ready(function(){
